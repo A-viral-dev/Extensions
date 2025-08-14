@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Chapter Reader",
+  "version": "1.0",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_title": "Toggle Reader",
+     "default_icon": "icon.png"
+  },
+  "background": {
+   
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.69shuba.com/*"],
+      "js": ["sites/69shuba.js"]
+    },
+    {
+      "matches": ["*://example.com/*"],
+      "js": ["sites/example.js"]
+    },
+     {
+      "matches": ["<all_urls>"],
+      "js": ["default.js","darkmode.js"]
+    }
+  ]
+}
